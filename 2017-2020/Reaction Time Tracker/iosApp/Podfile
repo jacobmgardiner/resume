@@ -1,0 +1,5 @@
+target 'ReactionTimeTracker' do
+#  use_frameworks!
+  platform :ios, '14.5'
+  pod 'shared', :path => '../shared'
+end

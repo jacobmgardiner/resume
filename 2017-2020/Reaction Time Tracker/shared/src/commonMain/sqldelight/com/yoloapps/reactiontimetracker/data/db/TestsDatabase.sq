@@ -1,0 +1,99 @@
+import com.yoloapps.reactiontimetracker.data.PromptData;
+import com.yoloapps.reactiontimetracker.data.db.PromptEntity;
+-- import kotlin.collections.List;
+
+CREATE TABLE Test (
+    date INTEGER AS Long NOT NULL DEFAULT -1,
+    score INTEGER AS Long NOT NULL DEFAULT -1
+--     prompts TEXT AS Array<PromptData> NOT NULL
+--     prompts TEXT AS PromptData NOT NULL
+);
+
+CREATE TABLE Prompt (
+    date INTEGER AS Long NOT NULL DEFAULT -1,
+    number INTEGER AS Int NOT NULL DEFAULT -1,
+    time INTEGER AS Long NOT NULL DEFAULT -1,
+    response_time INTEGER AS Long
+--     prompt TEXT AS PromptEntity NOT NULL
+);
+
+CREATE TABLE Log (
+    date INTEGER AS Long NOT NULL DEFAULT -1,
+    quality INTEGER AS Int NOT NULL DEFAULT -1,
+    hours INTEGER AS Int NOT NULL DEFAULT -1,
+    note TEXT AS String
+);
+
+insertTest:
+INSERT INTO Test(date, score)
+VALUES(?, ?);
+
+insertPrompt:
+INSERT INTO Prompt(date, number, time, response_time)
+VALUES(?, ?, ?, ?);
+
+insertLog:
+INSERT INTO Log(date, quality, hours, note)
+VALUES(?, ?, ?, ?);
+
+removeAllTests:
+DELETE FROM Test;
+
+removeTestsByRange:
+DELETE FROM Test
+WHERE date BETWEEN ? AND ?;
+
+removeAllPrompts:
+DELETE FROM Prompt;
+
+removePromptsByRange:
+DELETE FROM Prompt
+WHERE date BETWEEN ? AND ?;
+
+removeAllLogs:
+DELETE FROM Log;
+
+removeLogsByRange:
+DELETE FROM Log
+WHERE date BETWEEN ? AND ?;
+
+selectTestByDate:
+SELECT * FROM Test
+WHERE date = ?;
+
+selectLatestTest:
+SELECT * FROM Test
+WHERE date = (SELECT MAX(date) FROM Test);
+
+selectTestsByRange:
+SELECT * FROM Test
+WHERE date BETWEEN ? AND ?;
+
+selectAllTests:
+SELECT * FROM Test;
+
+selectPromptsByDate:
+SELECT * FROM Prompt
+WHERE date = ?;
+
+selectPromptsByRange:
+SELECT * FROM Prompt
+WHERE date BETWEEN ? AND ?;
+
+selectAllPrompts:
+SELECT * FROM Prompt;
+
+selectLogByDate:
+SELECT * FROM Log
+WHERE date = ?;
+
+selectLatestLog:
+SELECT * FROM Log
+WHERE date = (SELECT MAX(date) FROM Log);
+
+selectLogsByRange:
+SELECT * FROM Log
+WHERE date BETWEEN ? AND ?;
+
+selectAllLogs:
+SELECT * FROM Log;
