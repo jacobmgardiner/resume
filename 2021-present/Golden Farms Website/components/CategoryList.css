@@ -1,0 +1,11 @@
+h1 {
+    text-align: left;
+}
+
+.product-list {
+    overflow: auto;
+
+    /*border-style: solid;*/
+
+    /*margin: 0 auto;*/
+}

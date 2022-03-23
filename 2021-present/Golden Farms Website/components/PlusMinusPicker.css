@@ -1,0 +1,16 @@
+.plusminus-elem {
+    display: inline-block;
+    vertical-align: top;
+    border: lightgray solid 2px;
+    padding: 3px;
+    height: 20px;
+}
+
+.plusminus-button {
+
+}
+
+.plusminus-button:hover {
+    background: lightgray;
+    cursor: pointer;
+}
